@@ -1,0 +1,113 @@
+{
+  "id": "jd.cookie.uploader",
+  "name": "京东Cookie上传器",
+  "author": "@Winencey",
+  "repo": "https://github.com/Winencey/jd_boxjs",
+  "apps": [
+    {
+      "id": "qinglong_config",
+      "name": "青龙面板配置",
+      "author": "@Winencey",
+      "descs_html": [
+        "配置青龙面板连接信息，用于自动上传京东Cookie"
+      ],
+      "scripts": [
+        {
+          "name": "京东Cookie上传",
+          "script": "https://raw.githubusercontent.com/Winencey/jd_boxjs/main/ck.js"
+        }
+      ],
+      "keys": [
+        "@ql.address",
+        "@ql.client_id", 
+        "@ql.client_secret",
+        "@ql.limit_count",
+        "@ql.auto_upload",
+        "@ql.notify_enabled"
+      ],
+      "settings": [
+        {
+          "id": "@ql.auto_upload",
+          "name": "自动上传",
+          "val": true,
+          "type": "boolean",
+          "desc": "启用后自动将获取的Cookie上传到青龙面板"
+        },
+        {
+          "id": "@ql.notify_enabled", 
+          "name": "启用通知",
+          "val": true,
+          "type": "boolean",
+          "desc": "上传成功或失败时发送通知"
+        },
+        {
+          "id": "@ql.address",
+          "name": "青龙地址",
+          "val": "",
+          "type": "text",
+          "placeholder": "http://ip:port",
+          "desc": "青龙面板的访问地址"
+        },
+        {
+          "id": "@ql.client_id",
+          "name": "Client ID",
+          "val": "",
+          "type": "text",
+          "placeholder": "请输入您的Client ID",
+          "desc": "青龙面板的客户端ID"
+        },
+        {
+          "id": "@ql.client_secret", 
+          "name": "Client Secret",
+          "val": "",
+          "type": "text",
+          "placeholder": "请输入您的Client Secret",
+          "desc": "青龙面板的客户端密钥"
+        },
+        {
+          "id": "@ql.limit_count",
+          "name": "最大CK数量",
+          "val": "999",
+          "type": "text",
+          "desc": "单个容器允许的最大Cookie数量"
+        }
+      ]
+    },
+    {
+      "id": "cookie_settings",
+      "name": "Cookie设置",
+      "author": "@Winencey", 
+      "descs_html": [
+        "Cookie处理相关配置"
+      ],
+      "keys": [
+        "@cookie.retry_count",
+        "@cookie.timeout",
+        "@cookie.save_local"
+      ],
+      "settings": [
+        {
+          "id": "@cookie.retry_count",
+          "name": "重试次数",
+          "val": "3",
+          "type": "text",
+          "desc": "上传失败时的重试次数"
+        },
+        {
+          "id": "@cookie.timeout",
+          "name": "超时时间(秒)",
+          "val": "10",
+          "type": "text", 
+          "desc": "请求超时时间"
+        },
+        {
+          "id": "@cookie.save_local",
+          "name": "本地保存",
+          "val": true,
+          "type": "boolean",
+          "desc": "同时在本地保存Cookie备份"
+        }
+      ]
+    }
+  ]
+}
