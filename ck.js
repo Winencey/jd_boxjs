@@ -140,7 +140,14 @@ async function main() {
     
     // 上传到青龙面板
     await uploadToQingLong(jd_cookie, clean_pt_pin);
-}
+   // ============ 在这里添加 ============
+    // 保存到BoxJS显示字段
+    const currentTime = new Date().toLocaleString('zh-CN');
+    $.setdata(jd_cookie, "@cookie.last_ck");
+    $.setdata(currentTime, "@cookie.last_time");
+    console.log("✅ Cookie已保存到BoxJS显示字段");
+    // ============ 添加结束 ============
+    }
 
 // 修改主上传函数，增加变化检查逻辑
 async function uploadToQingLong(cookie, pt_pin) {
@@ -834,4 +841,5 @@ function Env(t, e) {
       this.log("", `🔔${this.name}, 结束! 🕛 ${s} 秒`), this.log(), (this.isSurge() || this.isQuanX() || this.isLoon()) && $done(t)
     }
   }(t, e)
+
 }
